@@ -1,0 +1,100 @@
+ can we overload the mvc action methods?
+ yes ! by using action name ...
+--------------------------------------------------------------------------------------------------
+ diffe between viewbag,viewdata,tempdata,session?
+ viewbag:-it can pass the data controller to view and it is dynamic type.
+ viewdata:-it can pass the data controller to view and it is distonry type key valu.
+ temdata:- it can pass the data controller to controller and action to action it is also distnory type key valu pair.
+ session :-session varibles can pass the data throut the application.
+
+    if we want to pass the data view to controller?
+    we can use Querystring and http post and hedden fields .
+--------------------------------------------------------------------------------------------------------
+ what is rager page?
+  rager is a markep langwage.
+-------------------------------------------------------------------------------------------------------
+ what is model binding?
+ extract the date from  an http request and provides extract data to controller action method parameters.
+ ----------------------------------------------------------------------------------------------------------
+what are actionfilters?
+  actionfilters are attributes that can applied on controller action method or on controller.
+  actionfilters are allow us add pre are post procissing logic to an action method.
+  
+  authorise
+  output catche
+  handle error
+  validate output
+  validate antyforegintoken
+  
+  //request https
+  //child actiononley
+-------------------------------------------------------------------------------------------------------------
+ what are action results in mvc?
+ viewresult
+ partialview result
+ jsonresult
+ fileresult
+ HttpNot Found Result
+ RedirectToAction
+-------------------------------------------------------------------------------------------------------------
+ what are the action selectors in mvc?
+  action selectors are attributes for action methods in controller and are used to control which action method
+  gets invoked.
+   1.actionname:-this action selector are used when you want invocke the an action method with different name.
+   2.action attribute like httpget ,httpPost.
+   3.what is non action attribute?
+   An Acction method is a public method in a controller that can be invoked using a URL . so if you have any pulic 
+   method in controller then it can be invoked using a URL request.then to restrict to access the public method 
+   in cotroller we can use 'non action attribute'.
+------------------------------------------------------------------------------------------------------------------
+   what are custom action filters?
+    authorize filter
+    action filter
+    result filter
+    exception filter
+------------------------------------------------------------------------------------------------------------
+  diff between html.partial and html.renderpartial?
+   both are helper methods are used for rendering partial view.
+   the return type of "render partial" is void where as "partial" returns mvchtmlstring.
+    the systex of partial() and render partial() methods in razor view.
+    @Html.Partial("partialviewname") and {Html.RenderPartial("partialviewname",item);}
+--------------------------------------------------------------------------------------------------------------
+  MVC LifeCycle?
+  m-model :- model is nothing but class we write the bussiness logic and validation logic inside the model.
+  v-View :- view is nothing but rager page thats extencetion is .cshtml we display the content by using html on view.
+  c- controler:- controller is nothing but class it was combine the model and views after that invocke.
+
+  request is coming from url that url goes to routconfic file that rout config file will check the url once if its
+  match resquest go's to controler  
+-------------------------------------------------------------------------------------------------------------------
+ what is bundling?
+ gropu of all css and scricts file referencess into a virtual bundle so that request is come to a bundle and 
+ responce from all the files in the bundle.
+ it will improview the performnce of view .
+  system.web.optimization
+   Bondulecollection
+   BundleTable.
+-----------------------------------------------------------------------------------------------------------------
+  what is routing?
+    routiong is  pattern matching system that is responsible for mapping incoming browser request to sepecified 
+    controller actions.
+     1.convenctional roution
+       it was created by default. which as we create the project by default it was created.
+     2.Attribute roution
+        using the [route] attribute to define routes is called attribute routiong.
+        attribute routiong gives us morecontrol over the urls than convenction-based routing.creating url pattrns
+        like hierarchies of resources.
+
+-------------------------------------------------------------------------------------------------------------------------------------
+  what is partial view?
+  partial view are used to encapsulate reusable view logic and it simplify the complexity of view .
+   partial view can then be used on multipule views.
+---------------------------------------------------------------------------------------------------------------------------------------
+  what is EDMX File?
+   it is a XML file that defines an entity data model, dascribes the target database schema and define the mapping between 
+   EDM and database .
+-----------------------------------------------------------------------------------------------------------------
+  what is dataset?
+    a DataSet is a container for one are more datatable objects that contains data we can retrive from the database
+     we can set up data relations between these tables with the datsset.
+-------------------------------------------------------------------------------------------------------------- 
