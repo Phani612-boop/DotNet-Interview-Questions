@@ -1,0 +1,180 @@
+ Fined higghest 3 salary of employee by using max function ?
+  select max(salary) from employee where salary<(
+  select max(salary) from employee where salary<(
+  select max(salary) from employee))
+-------------------------------------------------------------------------------------------------------
+ waq top 3 salary from employee by using top function?
+  select top 1 * from (
+   select top 3 * from employee order by salary desc) e order by salary asc
+----------------------------------------------------------------------------------------------------------------------
+ what is distinct ?
+  distinct will consider the commen values as single value
+-----------------------------------------------------------------------------------------------------------------
+ waq to display the top 3 salary by using row_numer function?
+ 
+  select* from (
+  select *, Row_NUMBER() over (order by salary desc) as 'rowid' from employee) e where rowid=3
+-----------------------------------------------------------------------------------------------------------------
+ waq to display som of even recods and odd records?
+ even:-
+  select * from(
+   select*, row_number() over (order by eno) as 'rowid' from employee) e where rowid%2=0
+ odd:-
+   select * from(
+   select*, row_number() over (order by eno) as 'rowid' from employee) e where rowid%2!=0
+-------------------------------------------------------------------------------------------------------------------
+  ROW_NUMBER() VS RANK() VS DENS_RANK()?
+ ROW_NUMBER() :-it is used to assain the uniqe rownumber for each and every row.
+ RONK() :-it is used to assain the same rank for duplicate values and it will skip the next rank.
+ DENS_RANK():-it is used to assain the same rank for duplicate values and it will Continue the next rank.
+---------------------------------------------------------------------------------------------------------------------
+joins in sqlserver?
+ inner join: it will display the matching records from both the table;
+ left join: it will display the all records from left table and matching records from right table.
+ right join: it will display the all records from right table and matching records from left table.
+ full join: it will dispaly the all records.
+ cross join: it is the cortiesion product of the table rows every first table row multiply with every second table rows.
+---------------------------------------------------------------------------------------------------------------------
+ self join?
+  joining the table by it self is called self join.
+   query ex:- select e.enmae as 'employee',m.ename as 'manager' from emp e join emp m on e.id=m.mid
+---------------------------------------------------------------------------------------------------------------------
+ eqwe join?
+ it is used to display the maching record from tables by using = operator.
+ it like inner join repalced with ',' and on condition repalaced with 'where' condition.
+
+ qurey:-select e.eno,e.ename,e.salary,d.dname from employee e,dept d where e.dno=e.dno
+----------------------------------------------------------------------------------------------------------------------
+ non eque join?
+  it is used to retrive the data from more then one table with out using = operater
+  in non eque join use any operator except = operator.
+  Query:- select s.sno,s.per,g.grade from student s,grade g where s.per between g.Imark and g.Hmark
+----------------------------------------------------------------------------------------------------------------------
+  display the records from left table with out matching records?
+  select e.eno,e.ename,e.salary,e.dno,d.dname from emp e left join dept d on d.dno=e.dno where d.dno is null
+
+  display the records from right table with out matching records?
+  select e.eno,e.ename,e.salary,e.dno,d.dname from emp e right join dept d on d.dno=e.dno where e.dno is null
+  
+  display the non matching records from both the tables?
+  select e.eno,e.ename,e.salary,e.eno,d.dname from emp1 e full join dept d on d.dno=e.dno where d.dno is null or e.dno is null
+
+ ---------------------------------------------------------------------------------------------------------------------
+  what the use of views?
+   views are create vartual tables.
+   it is used to hide the confidencial data.
+   2 types of views 
+   1, simple view :- view are created on one table it was simple.dml operations are performed on simple views.
+   2,complex views:- view are created on multipule tables it was comlex view.dml operation are doesn't performed.
+----------------------------------------------------------------------------------------------------------------------
+ diff between dml triggers and instead of triggers?
+ dml triggers are performed on tables .
+ insted of triggers are performed on views.
+----------------------------------------------------------------------------------------------------------------
+  what is triggers?
+   generaley when we work with triggers internally two tables are created 1, inserted 2. deleted it is called magic tables
+   Insertend:- inserted table is performing after insert the date 
+   Deleted:- deleted table is performing after deleting operation.
+--------------------------------------------------------------------------------------------------------------------------
+  tell me about tcl commends?
+   tcl commend are 
+   1. commit :- save the changes perminentley.
+   2. roolback :- undo the changes .
+   3. savepoint :-roolback the portion of transection.
+-----------------------------------------------------------------------------------------------------------------------
+   diff between sp and functions?
+  
+   storedprodedure                                                     functions
+=======================================================================================================================
+ sp is set of precompiled sql statments                          function is a subptogram which is used to
+ which will gets execuction when we call it                      perform a specific operation
+ 
+ sp will have execution plan                                     function will not have execution plan
+
+ sp will support input and output parameters                     function will support onley input perameters
+ 
+ sp does't support retturn key word                              function support retturn type.
+ 
+ sp will support DML commentd                                    function doesn't support dml commends.
+ 
+ sp will support tcl commends                                     function doesn't support tcl commend.
+
+ sp will support exception handling.                             function will not support exception handling.
+
+ sp will executs by using exec command                            function will gets executs select commmend.
+ 
+ we can call one sp in another sp.                               we can call one function in another function.
+----------------------------------------------------------------------------------------------------------------------
+ dispalay the duplicate records from table by using group by cluse?
+ 
+ select eno,ename,salary ,count(*) as cnt from employee group by eno,ename,salary having count(*) >1
+-------------------------------------------------------------------------------------------------------------------
+   diff between union and union all?
+  union :- it will delete the duplicate rows. it will work two select commends.it will arage the ditint sort.
+  union all:- it will display the duplicate rows .it will not use ditint sort.
+------------------------------------------------------------------------------------------------------------------
+  duplicate records delete from table by using cte?
+
+   with empcte(ename,rowno)
+  as
+  (
+     select ename,row_number() over (partition by (ename) order by (ename))  from employee
+  )
+   delete from empcte where rowno >1
+-------------------------------------------------------------------------------------------------------------------
+ pivot function?
+--step 1 for pivot data
+     select customername,
+              shoes as Shoes,
+              shirts as Shirts
+           from
+--step 2 actual data
+                (
+                 select customername,
+                        productname,
+                        amount 
+                        from customers
+                 ) as pivotdata
+----step 3 pivot function
+                pivot
+                    (
+                      sum(amount) for in productname in
+                      (Shoes,Shirts)) as pivoting
+
+
+---------------------------------------------------------------------------------------------------------------------------
+  nth highest salary from employee?
+  
+    select distinct(salary) from employee where 6=
+    select count(distinct(f.salary)) from employee f.salary<=e.salary)
+------------------------------------------------------------------------------------------------------------------------
+what is indexers?
+  indexers will do the search engien faster .
+  it fallow balanced tree structure.but indexers are decrease the performance of insert,delete,update. 
+  it has two types of indexers clustured and non clustred.
+-----------------------------------------------------------------------------------------------------------------------
+  partition by clouse?
+   select row_number() over(partition by (city) order by (gender)) as 'rowid' from emp
+----------------------------------------------------------------------------------------------------------------------
+ copy one table data to another table data?
+  select* into newtable from sourcetable.
+ ex: select * into emp from Emp.
+----------------------------------------------------------------------------------------------------------------------
+diff between unic key and primary key?
+  uniq will allow null values but pk doens not allow null values.
+  one table have multipule uniqs but pk should have one key onley.
+  uniq will by default non clusterd index pk will by default clusterd index.
+---------------------------------------------------------------------------------------------------
+ diff between clusterd index and non clusterd index?
+   in clusterd have leaf nodes and the leaf node can have actual data
+   in non clusterd leaf node have ponining to cluster index leaf node and its feactiching the date.
+---------------------------------------------------------------------------------------------------
+ diff between char and varchar and nvarchar?
+ Char:- It is fixed Length.it suports onley nonunicode 
+ varchar:- it is variable length. it suports onley nonunicode
+ nvarchar: it supports unicode characters.
+--------------------------------------------------------------------------------------------------
+what is npormalization?
+  it is database designe technic which is used to reduce redundency and dependency of data.
+---------------------------------------------------------------------------------------------------
+ 
