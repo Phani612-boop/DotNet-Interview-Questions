@@ -1,0 +1,185 @@
+difference between IEnumarable and IEnumretar?
+  bothe are interfaces IEnumarable does not remember his courser state it doesn't remember at which 
+  current position it belongs to
+  IEnumaretar does remember the courser state it contains two methodes 1)move next 2)current
+ IEnumarable doesn't states  and IEnumarater Does remember states 
+----------------------------------------------------------------------------------------------
+difference between IEnumarble and IQueryble?
+  both  are Interfaces to .net collection.
+  IQueryble inherits from IEnumarble.
+  IEnumarable  filter logic exicutes on the client side but 
+  IQueryble filter logic gets exicute on the database or rdbms or entity framework and it will reduce 
+  the network traffic.
+
+  IEnumarble - in memory Collection
+  IQueryble - Collection connected to Dbms or Entity framework 
+-----------------------------------------------------------------------------------------------
+ what is out vs reff?
+  out and refe is C# keywords which is help to pass varibles to functions and methods by refferns.
+  ref - ref is two way coller to colle and back
+  out - out is one way it is send data back from colle to coller and any data from coller is discarded
+-----------------------------------------------------------------------------------------------------
+  what is ExtenctionMehods?
+  it is a mechanism of adding new methods into an existing class or structure also with out modifing
+  the source code of the original type and in this process we don't require any permissions from original
+  type and the original type doesn't require any re-compilation
+   extenction methods are define as static but once they are bound with any class are structor they turn into
+   non static
+----------------------------------------------------------------------------------------------------------
+ Difference between var and dynamic?
+  var is early binding it means it will check the value at compile time .
+  dynamic is latbinding it means it will check the value at runtime.
+--------------------------------------------------------------------------------------------------------
+ what is a Deligete?
+ the deligete is the type safe function pointer
+ the main useage of deligete is Callbacks
+ when you calls the deligete method signature and delegate signature must be same 
+ the deligete is refference type 
+   1,single cast deligete
+   2,multi cast deligete:-it will reduce the code and no need create the cunstructor another time.
+   generic deligete
+    1,<func> deligete:- it can calls all value return but when you call func deligate it value retuns must be void.
+    2,<action> deligete:- it can calles non value returns ex: void.
+    3,<predicate> deligete:- it can calls boolion values.
+-------------------------------------------------------------------------------------------------------
+  what is immutable objects?
+  once data is loaded then that data can not be changed internally and externolly
+  it is used for static data ex:-(master,confic,singilton)
+  there is no setters and it methods can be readonly 
+-----------------------------------------------------------------------------------------------------
+ what is diff between constant and readonley?
+ constaint is compailtime Constaint.
+ readonley is runtime constaint it can be instialise the value by using constructor.
+---------------------------------------------------------------------------------------------------
+ Types of Constructors?
+ 1) Parameterless 
+ 2)Parameterized
+ 3)copy
+ 4)static
+
+-----------------------------------------------------------------------------------------------------
+ what is diff i++ and ++i?
+ i++ :- first assain the value and then it incriments ex:-i++ =>Assain=>incriments
+ ++i :-first incriment and then assain           ex:-++i =>incriment => assain
+----------------------------------------------------------------------------------------------------
+ diff between is and as?
+  IS key word is to check the object is same type are not.
+  AS key word is if you want to convert the objects from one type to another type.if object is
+  another type itshows the null value.
+--------------------------------------------------------------------------------------------------
+ diff between debug and relese?
+  In debug mode code is not optimized.
+  In relese mode cod is optimized.it means if you have an exception it doesnt shows the stack trace.
+  in relese mode debug symbols are removed.
+-------------------------------------------------------------------------------------------------
+ what is objectinstilyser?
+ It helps to call the methods and varibles at a time.
+ In this Object inetialiter no need to create the constructor multipul times.
+------------------------------------------------------------------------------------------------
+ what is the use of private constructor?
+  . A class with a private constructor can not be inherited.
+  . we can not create a object of class which has private constructor.
+  . many times we do not want to create instance of certain class like utility class
+   or common roution class then we can use  this.
+--------------------------------------------------------------------------------------------------
+ what is the use of params keyword?
+ params keywod is helps to functon or methods to create a dynamic input parametors.
+--------------------------------------------------------------------------------------------------
+ static constructor vs non static constructor?
+. static constructor are implicitly called where as non-static must be explicitly called.
+.non-static constructors can be paarameterized bu static constructor can't have any parameters because
+ static constructors are implicitly called.
+.non-static constructors can be overloade but static constructors can't overloaded because dont have 
+ parameters for static constructors.
+  
+  what is the use of static constracture?
+   a static constructor is used to initialize the static fields of the class and to write the code 
+   that needs to be executed onley once.
+-----------------------------------------------------------------------------------------------------
+ can we impliment the interfaces methods with same name?
+ yes! we can impliment by explicitly.
+----------------------------------------------------------------------------------------------------
+ Difference between abstract class and interfaces?
+ . abstract class has half defined bas class.
+ . abstract class contains abstract methods.
+ . abstract class can't create the instance.
+ . interfaces is should be use for contract and enforcement.(main point)
+ . interface methods be default public.
+----------------------------------------------------------------------------------------------------
+ delegates and events?
+ .delegate is meant for callbacks.
+ . callbacks means which i have two threads which i want to comunication mechanisum between them.
+ . delegate can be converted to multicast += ,-= 
+ . in multicast delegate client can manipulate the senders delgate objects.
+ when do you use event?
+   when i have a publisher subscriber model.
+ . event is a pure publisher subcriber model.pure publisher means client can't do modification.
+ . event is a encapsulation over delegates.
+
+   
+---------------------------------------------------------------------------------------------------
+ difference between == vs .equels()?
+ == is compare objct refference and .equels() compare contants.
+ == is techenical comparison and .equels() is semantic comprison.
+ == is operator and .equels() is fundamentaly overloaded method.
+ == is if is has null it works and .equels() null exception thrown.
+ == it checks compile time and .equels() it checks runtime.
+
+---------------------------------------------------------------------------------------------------
+ diff between boxing and uoxing?
+  the process of boxing is converting value type to refferenc type.
+  unboxing is reffernce type to value type.
+--------------------------------------------------------------------------------------------------- 
+ what is abstraction ? or diff between abstaraction and enchptilation?
+  the abstraction is showing nesesari data and hiding un nessasari data.
+  enchaptilation impliment abstraction.
+ what is enchapsilation?
+  while enchaptilation is hiding complix data.
+  enchaptilation impliment abstraction.
+ 
+------------------------------------------------------------------------------------------------------
+  what is the need of explicit constractour?
+   if we call explicit constractour where as we get a change  of  the initializing field and varibles of the class 
+   with different values are going to create the instance of that class.
+------------------------------------------------------------------------------------------------------------------- 
+  diff between string and string bulder?
+   string is mutable it will allocate huge memmory .memory allocation can see by using clr profieler tool.
+   string bulder are immmutable it will allocate less memory
+-----------------------------------------------------------------------------------------------------------------
+  what is generic?
+  it seperate the logic from the data type.
+  it hepls us decouple logic from the data type. 
+  generic  helps us to flexbule and strogley type collection
+---------------------------------------------------------------------------------------------------------------------
+  diff between background thred and fourground thread?
+    threading helps us to execute program code parlley.
+   Back ground thread die off if main thred(app) exists.
+   four ground threads exists it says even if main thread(app) exits
+--------------------------------------------------------------------------------------------------------------------
+  what is the use of static keyword?
+ if you watnt to group unrealated function and method like utility class then we use.
+ if you watnts to share the common data.
+----------------------------------------------------------------------------------------------------------------------
+  what is polymorfisum?
+   polumorfusam means meny forms .two types of polymorfuesum.
+   static and dynamic polimorfusum.
+   overloading and overiding.
+-------------------------------------------------------------------------------------------------------------------
+ Diff Between Throw And throe ex?
+ Throw:- it will display the complete stack information.
+ throw ex: it will display onley single method .
+--------------------------------------------------------------------------------------------------------------
+  Diff Between Protected and protected internal?
+  protected members are onley access from derived class we can not access the protected member by create the
+  object.
+  we can acces the protected internal member by creating the object as well as by derived class.
+  also we can acces the protected internal in same assembly by derived class.
+
+
+
+
+
+
+
+
+
